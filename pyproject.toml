@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "centrifuge"
+version = "0.1.0"
+description = "AI-driven Serum 2 preset generator"
+requires-python = ">=3.11"
+dependencies = [
+    "cbor2>=5.6",
+    "zstandard>=0.23",
+    "anthropic>=0.40",
+    "click>=8.1",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+]
+
+[project.scripts]
+centrifuge = "centrifuge.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["centrifuge"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
